@@ -31,6 +31,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
+
+        <TextView
+            android:id="@+id/userDeleteTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Delete User"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="#FF5722" />
+
+        <TextView
+            android:id="@+id/userUpdateTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Update User"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="#4CAF50" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

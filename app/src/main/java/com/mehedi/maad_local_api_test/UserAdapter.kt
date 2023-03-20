@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mehedi.maad_local_api_test.databinding.ItemUserBinding
 
-class UserAdapter : ListAdapter<ResponseUser, UserAdapter.UserViewHolder>(comparator) {
+class UserAdapter(
+    var deleteListener: DeleteListener,
+    var updateListener: UpdateListener
+) :
+    ListAdapter<ResponseUser, UserAdapter.UserViewHolder>(comparator) {
 
 
     class UserViewHolder(var binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
@@ -51,6 +55,19 @@ class UserAdapter : ListAdapter<ResponseUser, UserAdapter.UserViewHolder>(compar
             holder.binding.userNamTv.text = it.name
             holder.binding.userEmailTv.text = it.email
             holder.binding.useridTv.text = "${it.id}"
+
+            holder.binding.userDeleteTv.setOnClickListener { _ ->
+
+                deleteListener.deleteUser(it.id)
+            }
+
+            holder.binding.userUpdateTv.setOnClickListener { _ ->
+
+                updateListener.updateUser(it, it.id)
+
+
+            }
+
 
         }
     }
